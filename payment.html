@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Payment</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+  <h2>Payment</h2>
+  <label>Payment Method:</label>
+  <select id="paymentMethod">
+    <option value="Credit Card">Credit Card</option>
+    <option value="Debit Card">Debit Card</option>
+    <option value="UPI">UPI</option>
+    <option value="Net Banking">Net Banking</option>
+  </select>
+  <button onclick="completePayment()">Pay Now</button>
+</div>
+
+<script>
+function completePayment() {
+  const paymentMethod = document.getElementById('paymentMethod').value;
+  const booking = JSON.parse(localStorage.getItem('currentBooking'));
+
+  if(!booking) {
+    alert("No booking found!");
+    window.location.href = "booking.html";
+    return;
+  }
+
+  booking.payment = paymentMethod;
+
+  // Get existing bookings or empty array
+  let bookings = JSON.parse(localStorage.getItem('bookings')) || [];
+
+  // Add new booking
+  bookings.push(booking);
+
+  // Save all bookings
+  localStorage.setItem('bookings', JSON.stringify(bookings));
+
+  // Remove temporary booking
+  localStorage.removeItem('currentBooking');
+
+  alert("Payment Successful!");
+  window.location.href = "bookings.html";
+}
+</script>
+</body>
+</html>
