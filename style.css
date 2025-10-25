@@ -1,85 +1,237 @@
+/* ----------------- General ----------------- */
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
   padding: 0;
-  background:#f4f4f4;
+  background: linear-gradient(135deg, #74ABE2, #5563DE);
+  color: #333;
 }
 
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+/* ----------------- Navigation ----------------- */
 nav {
-  background: #fff;
+  background: rgba(0,0,0,0.6);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  padding: 15px 30px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
+
 nav .logo {
   font-weight: bold;
-  font-size: 24px;
+  font-size: 28px;
+  color: #fff;
 }
+
 nav .nav-links a {
   margin-left: 20px;
-  text-decoration: none;
-  color: #333;
-}
-nav .nav-links .btn {
-  padding: 5px 12px;
-  background: #007bff;
-  color: #fff;
-  border-radius: 4px;
-}
-
-.hero, .featured {
-  text-align: center;
-  padding: 40px 20px;
-}
-
-.hero form input, .hero form select, .form-container form input, .form-container form select {
-  display: block;
-  width: 100%;
-  padding: 8px;
-  margin: 10px 0;
-}
-
-button {
-  padding: 10px 15px;
-  background: #007bff;
-  color: #fff;
-  border:none;
+  padding: 8px 15px;
   border-radius: 5px;
-  cursor:pointer;
+  transition: all 0.3s ease;
+}
+
+nav .nav-links a:hover {
+  background: rgba(255,255,255,0.3);
+}
+
+nav .nav-links .btn {
+  background: #FF4E50;
+  color: #fff;
+}
+
+nav .nav-links .btn:hover {
+  background: #FF6A60;
+}
+
+/* ----------------- Hero Section ----------------- */
+.hero {
+  text-align: center;
+  padding: 80px 20px;
+  color: #fff;
+  background: linear-gradient(135deg, rgba(0,0,0,0.4), rgba(0,0,0,0.2)), url('https://source.unsplash.com/1600x600/?travel') no-repeat center/cover;
+}
+
+.hero h1 {
+  font-size: 48px;
+  margin-bottom: 30px;
+}
+
+.hero form {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.hero form input,
+.hero form select {
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  min-width: 150px;
+}
+
+.hero form button {
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  background: #FF4E50;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.hero form button:hover {
+  background: #FF6A60;
+  transform: scale(1.05);
+}
+
+/* ----------------- Featured Section ----------------- */
+.featured {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.featured h2 {
+  color: #fff;
+  margin-bottom: 40px;
+  font-size: 36px;
 }
 
 .featured .cards {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  gap: 20px;
 }
 
 .card {
-  background: #fff;
-  margin: 10px;
-  padding: 10px;
-  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  border-radius: 15px;
   width: 250px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+  overflow: hidden;
+  color: #fff;
 }
 
 .card img {
   width: 100%;
-  border-radius: 5px;
+  border-radius: 15px 15px 0 0;
+  transition: transform 0.3s ease;
 }
 
+.card h3 {
+  margin: 15px 0 5px;
+}
+
+.card p {
+  margin: 0 0 15px;
+}
+
+.card button {
+  margin-bottom: 15px;
+  padding: 8px 15px;
+  border-radius: 8px;
+  border: none;
+  background: #FF4E50;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.card button:hover {
+  background: #FF6A60;
+  transform: scale(1.05);
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.4);
+}
+
+.card:hover img {
+  transform: scale(1.1);
+}
+
+/* ----------------- Form Containers ----------------- */
 .form-container {
-  max-width: 400px;
+  max-width: 450px;
   margin: 50px auto;
-  background: #fff;
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow:0 2px 10px rgba(0,0,0,0.1);
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(10px);
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  color: #fff;
 }
 
-a {
-  text-decoration: none;
-  color: #007bff;
+.form-container h2 {
+  margin-bottom: 30px;
+}
+
+.form-container form input,
+.form-container form select,
+.form-container form button {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+}
+
+.form-container form input {
+  background: rgba(255,255,255,0.2);
+  color: #fff;
+}
+
+.form-container form input::placeholder {
+  color: #ddd;
+}
+
+.form-container form select {
+  background: rgba(255,255,255,0.2);
+  color: #fff;
+}
+
+.form-container form button {
+  background: #FF4E50;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.form-container form button:hover {
+  background: #FF6A60;
+  transform: scale(1.05);
+}
+
+/* ----------------- Success Page ----------------- */
+#bookingDetails {
+  margin: 20px 0;
+  line-height: 1.6;
+  color: #fff;
+}
+
+/* ----------------- Responsive ----------------- */
+@media(max-width: 768px){
+  .hero form {
+    flex-direction: column;
+  }
+
+  .featured .cards {
+    flex-direction: column;
+    align-items: center;
+  }
 }
