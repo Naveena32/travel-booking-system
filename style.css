@@ -1,237 +1,128 @@
-/* ----------------- General ----------------- */
+/* Global */
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  margin: 0;
-  padding: 0;
-  background: linear-gradient(135deg, #74ABE2, #5563DE);
-  color: #333;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: linear-gradient(to right, #a8edea, #fed6e3);
 }
 
-a {
-  text-decoration: none;
-  color: #fff;
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(5px);
 }
 
-/* ----------------- Navigation ----------------- */
-nav {
-  background: rgba(0,0,0,0.6);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 30px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-  position: sticky;
-  top: 0;
-  z-index: 10;
+header h1 {
+    margin: 0;
+    color: #333;
 }
 
-nav .logo {
-  font-weight: bold;
-  font-size: 28px;
-  color: #fff;
+nav button {
+    margin-left: 10px;
+    padding: 10px 15px;
+    border: none;
+    background: #ff758c;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s;
 }
 
-nav .nav-links a {
-  margin-left: 20px;
-  padding: 8px 15px;
-  border-radius: 5px;
-  transition: all 0.3s ease;
+nav button:hover {
+    background: #ff7eb3;
 }
 
-nav .nav-links a:hover {
-  background: rgba(255,255,255,0.3);
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.5);
+    justify-content: center;
+    align-items: center;
 }
 
-nav .nav-links .btn {
-  background: #FF4E50;
-  color: #fff;
+.modal-content {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    width: 300px;
+    position: relative;
 }
 
-nav .nav-links .btn:hover {
-  background: #FF6A60;
+.modal-content input {
+    width: 100%;
+    margin: 10px 0;
+    padding: 8px;
 }
 
-/* ----------------- Hero Section ----------------- */
-.hero {
-  text-align: center;
-  padding: 80px 20px;
-  color: #fff;
-  background: linear-gradient(135deg, rgba(0,0,0,0.4), rgba(0,0,0,0.2)), url('https://source.unsplash.com/1600x600/?travel') no-repeat center/cover;
+.modal-content button {
+    width: 100%;
+    padding: 10px;
+    background: #6a11cb;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
 }
 
-.hero h1 {
-  font-size: 48px;
-  margin-bottom: 30px;
+.modal-content button:hover {
+    background: #2575fc;
 }
 
-.hero form {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 15px;
+.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 20px;
+    cursor: pointer;
 }
 
-.hero form input,
-.hero form select {
-  padding: 10px;
-  border-radius: 8px;
-  border: none;
-  min-width: 150px;
-}
-
-.hero form button {
-  padding: 10px 20px;
-  border-radius: 8px;
-  border: none;
-  background: #FF4E50;
-  color: #fff;
-  font-weight: bold;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.hero form button:hover {
-  background: #FF6A60;
-  transform: scale(1.05);
-}
-
-/* ----------------- Featured Section ----------------- */
-.featured {
-  text-align: center;
-  padding: 60px 20px;
-}
-
-.featured h2 {
-  color: #fff;
-  margin-bottom: 40px;
-  font-size: 36px;
-}
-
-.featured .cards {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 20px;
+/* Cards */
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 40px 0;
+    gap: 20px;
 }
 
 .card {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(8px);
-  border-radius: 15px;
-  width: 250px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-  transition: all 0.3s ease;
-  overflow: hidden;
-  color: #fff;
-}
-
-.card img {
-  width: 100%;
-  border-radius: 15px 15px 0 0;
-  transition: transform 0.3s ease;
-}
-
-.card h3 {
-  margin: 15px 0 5px;
-}
-
-.card p {
-  margin: 0 0 15px;
-}
-
-.card button {
-  margin-bottom: 15px;
-  padding: 8px 15px;
-  border-radius: 8px;
-  border: none;
-  background: #FF4E50;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.card button:hover {
-  background: #FF6A60;
-  transform: scale(1.05);
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 15px;
+    width: 250px;
+    padding: 15px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    backdrop-filter: blur(5px);
 }
 
 .card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 12px 25px rgba(0,0,0,0.4);
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
 }
 
-.card:hover img {
-  transform: scale(1.1);
+.card img {
+    width: 100%;
+    border-radius: 10px;
 }
 
-/* ----------------- Form Containers ----------------- */
-.form-container {
-  max-width: 450px;
-  margin: 50px auto;
-  background: rgba(255,255,255,0.1);
-  backdrop-filter: blur(10px);
-  padding: 40px;
-  border-radius: 15px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-  color: #fff;
+.card button {
+    margin-top: 10px;
+    padding: 8px 12px;
+    border: none;
+    background: linear-gradient(to right, #ff758c, #ff7eb3);
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
 }
 
-.form-container h2 {
-  margin-bottom: 30px;
-}
-
-.form-container form input,
-.form-container form select,
-.form-container form button {
-  width: 100%;
-  padding: 12px;
-  margin-bottom: 15px;
-  border-radius: 8px;
-  border: none;
-  outline: none;
-}
-
-.form-container form input {
-  background: rgba(255,255,255,0.2);
-  color: #fff;
-}
-
-.form-container form input::placeholder {
-  color: #ddd;
-}
-
-.form-container form select {
-  background: rgba(255,255,255,0.2);
-  color: #fff;
-}
-
-.form-container form button {
-  background: #FF4E50;
-  color: #fff;
-  font-weight: bold;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.form-container form button:hover {
-  background: #FF6A60;
-  transform: scale(1.05);
-}
-
-/* ----------------- Success Page ----------------- */
-#bookingDetails {
-  margin: 20px 0;
-  line-height: 1.6;
-  color: #fff;
-}
-
-/* ----------------- Responsive ----------------- */
-@media(max-width: 768px){
-  .hero form {
-    flex-direction: column;
-  }
-
-  .featured .cards {
-    flex-direction: column;
-    align-items: center;
-  }
+.card button:hover {
+    background: linear-gradient(to right, #6a11cb, #2575fc);
 }
