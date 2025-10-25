@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Booking</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="form-container">
+  <h2>Book Your Trip</h2>
+  <form id="bookingForm">
+    <input type="text" id="fullName" placeholder="Full Name" required>
+    <input type="text" id="contact" placeholder="Contact Number" required>
+    <input type="email" id="email" placeholder="Email" required>
+    <select id="travelMethod">
+      <option value="Flight">Flight</option>
+      <option value="Bus">Bus</option>
+      <option value="Car">Car</option>
+      <option value="Bike">Bike</option>
+    </select>
+    <button type="submit">Proceed to Payment</button>
+  </form>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
