@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Bookings</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+  <h2>My Bookings</h2>
+  <div id="bookingList"></div>
+  <button onclick="goBack()">Back to Booking</button>
+</div>
+
+<script>
+function loadBookings() {
+  const user = JSON.parse(localStorage.getItem('user'));
+  if(!user) {
+    alert("Please login first!");
+    window.location.href = "login.html";
+    return;
+  }
+
+  const allBookings = JSON.parse(localStorage.getItem('bookings')) || [];
+  const userBookings = allBookings.filter(b => b.username === user.username);
+
+  const bookingList = document.getElementById('bookingList');
+  bookingList.innerHTML = '';
+
+  if(userBookings.length === 0) {
+    bookingList.innerHTML = "<p>No bookings yet!</p>";
+    return;
+  }
+
+  userBookings.forEach((b, index) => {
+    bookingList.innerHTML += `
+      <div class="booking-card">
+        <h3>Booking #${index + 1}</h3>
+        <p><strong>Destination:</strong> ${b.destination}</p>
+        <p><strong>Travel Mode:</strong> ${b.travelMethod}</p>
+        <p><strong>Departure:</strong> ${b.departDate}</p>
+        <p><strong>Return:</strong> ${b.returnDate}</p>
+        <p><strong>Payment:</strong> ${b.payment}</p>
+      </div>
+    `;
+  });
+}
+
+function goBack() {
+  window.location.href = "booking.html";
+}
+
+loadBookings();
+</script>
+</body>
+</html>
