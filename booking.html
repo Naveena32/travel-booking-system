@@ -3,25 +3,65 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Booking</title>
+<title>Book Travel</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="form-container">
-  <h2>Book Your Trip</h2>
-  <form id="bookingForm">
-    <input type="text" id="fullName" placeholder="Full Name" required>
-    <input type="text" id="contact" placeholder="Contact Number" required>
-    <input type="email" id="email" placeholder="Email" required>
-    <select id="travelMethod">
-      <option value="Flight">Flight</option>
-      <option value="Bus">Bus</option>
-      <option value="Car">Car</option>
-      <option value="Bike">Bike</option>
-    </select>
-    <button type="submit">Proceed to Payment</button>
-  </form>
+<div class="container">
+  <h2>Book Your Travel</h2>
+
+  <!-- User can enter destination manually -->
+  <label>Destination:</label>
+  <input type="text" id="destination" placeholder="Enter your destination">
+
+  <label>Travel Mode:</label>
+  <select id="travelMode">
+    <option value="Flight">Flight</option>
+    <option value="Bus">Bus</option>
+    <option value="Car">Car</option>
+    <option value="Bike">Bike</option>
+  </select>
+
+  <label>Departure Date:</label>
+  <input type="date" id="departDate">
+
+  <label>Return Date:</label>
+  <input type="date" id="returnDate">
+
+  <button onclick="proceedPayment()">Proceed to Payment</button>
+  <button onclick="viewBookings()">View My Bookings</button>
 </div>
-<script src="script.js"></script>
+
+<script>
+function proceedPayment() {
+  const user = JSON.parse(localStorage.getItem('user'));
+  if(!user) {
+    alert("Please login first!");
+    window.location.href = "login.html";
+    return;
+  }
+
+  const destination = document.getElementById('destination').value.trim();
+  const travelMode = document.getElementById('travelMode').value;
+  const departDate = document.getElementById('departDate').value;
+  const returnDate = document.getElementById('returnDate').value;
+
+  if(!destination || !travelMode || !departDate || !returnDate) {
+    alert("Please fill all fields!");
+    return;
+  }
+
+  // Save booking temporarily for payment page
+  const booking = { username: user.username, destination, travelMode, departDate, returnDate };
+  localStorage.setItem('currentBooking', JSON.stringify(booking));
+
+  // Redirect to payment page
+  window.location.href = "payment.html";
+}
+
+function viewBookings() {
+  window.location.href = "bookings.html";
+}
+</script>
 </body>
 </html>
