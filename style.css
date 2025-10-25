@@ -1,0 +1,85 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background:#f4f4f4;
+}
+
+nav {
+  background: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+nav .logo {
+  font-weight: bold;
+  font-size: 24px;
+}
+nav .nav-links a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #333;
+}
+nav .nav-links .btn {
+  padding: 5px 12px;
+  background: #007bff;
+  color: #fff;
+  border-radius: 4px;
+}
+
+.hero, .featured {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.hero form input, .hero form select, .form-container form input, .form-container form select {
+  display: block;
+  width: 100%;
+  padding: 8px;
+  margin: 10px 0;
+}
+
+button {
+  padding: 10px 15px;
+  background: #007bff;
+  color: #fff;
+  border:none;
+  border-radius: 5px;
+  cursor:pointer;
+}
+
+.featured .cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.card {
+  background: #fff;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  width: 250px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.card img {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.form-container {
+  max-width: 400px;
+  margin: 50px auto;
+  background: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow:0 2px 10px rgba(0,0,0,0.1);
+}
+
+a {
+  text-decoration: none;
+  color: #007bff;
+}
